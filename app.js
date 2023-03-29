@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import path from "path";
 
 import recipeRoutes from "./routes/recipes.js";
 
@@ -9,6 +10,8 @@ const PORT = process.env.PORT || 8000;
 app.use(cors());
 
 app.use(express.static("public"));
+const __dirname = path.resolve();
+app.use("/", express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
