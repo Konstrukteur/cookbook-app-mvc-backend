@@ -9,9 +9,7 @@ const PORT = process.env.PORT || 8000;
 
 app.use(cors());
 
-app.use(express.static("public"));
-const __dirname = path.resolve();
-app.use("/", express.static(path.join(__dirname, "public")));
+app.use("/", express.static(path.join(path.resolve(), "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
